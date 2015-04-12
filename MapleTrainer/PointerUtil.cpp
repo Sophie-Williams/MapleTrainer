@@ -12,7 +12,6 @@ DWORD GetValue(DWORD dwBase, DWORD dwOffset)
 	}
 }
 
-
 ULONG_PTR ReadPointer(ULONG_PTR* ulBase, INT nOffset){
 	if (!IsBadReadPtr((VOID*)ulBase, sizeof(ULONG_PTR))){
 		if (!IsBadReadPtr((VOID*)((*(ULONG_PTR*)ulBase)+nOffset), sizeof(ULONG_PTR))){
@@ -22,7 +21,7 @@ ULONG_PTR ReadPointer(ULONG_PTR* ulBase, INT nOffset){
 	return 0;
 }
 
-
+// reading nested pointers
 ULONG_PTR readMultiPointer(ULONG_PTR ulBase, int level, ...)
 {
 	ULONG_PTR ulResult = -1;
